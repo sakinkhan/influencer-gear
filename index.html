@@ -6,6 +6,33 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/36ad9c18a0.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const toggleBtn = document.getElementById('menu-toggle');
+          const mobileMenu = document.getElementById('mobile-menu');
+          const iconHamburger = document.getElementById('icon-hamburger');
+          const iconClose = document.getElementById('icon-close');
+      
+          toggleBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('-translate-x-full');
+            mobileMenu.classList.toggle('translate-x-0');
+      
+            iconHamburger.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+          });
+      
+          // Close menu on link click
+          document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+              mobileMenu.classList.add('-translate-x-full');
+              mobileMenu.classList.remove('translate-x-0');
+      
+              iconHamburger.classList.remove('hidden');
+              iconClose.classList.add('hidden');
+            });
+          });
+        });
+    </script>
     <title>Influencer Products</title>
     <style>
         @media screen and (min-width:1024px) {
@@ -36,21 +63,51 @@
 </head>
 <body>
     <header>
-        <nav class="flex items-center justify-between mx-4 gap-[59px] lg:gap-x-[494px] lg:mx-[120px] mt-[35px] lg:mt-[50px]">
-            <div class="lg:hidden">
-                <i class="fa-solid fa-bars hover:scale-120 duration-300"></i>
+        <nav class="relative flex items-center justify-between px-4 lg:px-[120px] mt-[35px] lg:mt-[50px]">
+            <!-- LEFT: Hamburger Button -->
+            <div class="flex items-center lg:hidden">
+              <button id="menu-toggle" class="z-30">
+                <!-- Hamburger Icon -->
+                <svg id="icon-hamburger" class="w-8 h-8 text-gray-800 transition duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <!-- Close Icon -->
+                <svg id="icon-close" class="w-8 h-8 text-gray-800 hidden transition duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
             </div>
-            <a href="index.html"><h1 class="font-poppins font-bold text-center text-2xl text-[#3A3A3A] hover:scale-110 duration-300">Influencer products</h1></a>
-            <ul class="flex justify-between gap-x-[34px] ">
-                <div class="hidden lg:flex lg:justify-between lg:gap-x-[34px]">
-                    <li class="hover:scale-120 duration-300"><a href="#home" class="text-[#3A3A3A] text-[16px] font-semibold">Home</a></li>
-                    <li class="hover:scale-120 duration-300"><a href="#products" class="text-[#3A3A3A] text-[16px] font-semibold">Sign up</a></li>
-                    <li class="hover:scale-120 duration-300"><a href="#about" class="text-[#3A3A3A] text-[16px] font-semibold">Products</a></li>
-                    <li class="hover:scale-120 duration-300"><a href="#contact" class="text-[#3A3A3A] text-[16px] font-semibold">Log In</a></li>
-                    <li class="hover:scale-120 duration-300"><a href=""><i class="fa-solid fa-magnifying-glass text-[24px] text-[#3A3A3A]"></i></a></li>
-                </div>
-                <li class="hover:scale-110 duration-300"><a href=""><i class="fa-solid fa-cart-shopping text-[24px] text-[#3A3A3A]"></i></a></li>
-            </ul>
+          
+            <!-- CENTER: Title -->
+            <a href="index.html" class="absolute left-1/2 transform -translate-x-1/2">
+              <h1 class="font-poppins font-bold text-center text-2xl text-[#3A3A3A] hover:scale-110 duration-300">
+                Influencer products
+              </h1>
+            </a>
+            <!-- RIGHT: Cart + Desktop Nav -->
+            <div class="flex items-center gap-x-[20px]">
+              <!-- Desktop Nav (hidden on small screens) -->
+              <ul class="hidden lg:flex items-center gap-x-[34px] mr-4">
+                <li class="hover:scale-105 duration-300"><a href="#home" class="text-[#3A3A3A] text-[16px] font-semibold">Home</a></li>
+                <li class="hover:scale-105 duration-300"><a href="#products" class="text-[#3A3A3A] text-[16px] font-semibold">Sign up</a></li>
+                <li class="hover:scale-105 duration-300"><a href="#about" class="text-[#3A3A3A] text-[16px] font-semibold">Products</a></li>
+                <li class="hover:scale-105 duration-300"><a href="#contact" class="text-[#3A3A3A] text-[16px] font-semibold">Log In</a></li>
+              </ul>
+              <!-- Cart Icons -->
+              <a href="#"><i class="fa-solid fa-cart-shopping text-[24px] text-[#3A3A3A] hover:scale-110 duration-300"></i></a>
+            </div>
+            <!-- Slide-in Mobile Menu -->
+            <div id="mobile-menu" class="fixed top-0 left-0 h-full w-64 bg-gray-100 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-20 lg:hidden">
+              <div class="px-6 py-8">
+                <ul class="space-y-4 mt-1 ml-14">
+                  <li><a href="#home" class="block text-gray-800 font-medium hover:text-blue-500 hover:scale-105 hover:font-bold duration-200">Home</a></li>
+                  <li><a href="#about" class="block text-gray-800 font-medium hover:text-blue-500 hover:scale-105 hover:font-bold duration-200">Sign up</a></li>
+                  <li><a href="#blog" class="block text-gray-800 font-medium hover:text-blue-500 hover:scale-105 hover:font-bold duration-200">Products</a></li>
+                  <li><a href="#contact" class="block text-gray-800 font-medium hover:text-blue-500 hover:scale-105 hover:font-bold duration-200">Log In</a></li>
+                  <a href="#"><i class="fa-solid fa-magnifying-glass text-[24px] text-[#3A3A3A] hover:text-blue-500 hover:scale-110 duration-300"></i></a>
+                </ul>
+              </div>
+            </div>
         </nav>
     </header>
     <main>
