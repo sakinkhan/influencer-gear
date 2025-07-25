@@ -34,30 +34,41 @@
 </head>
 <body>
     <header>
-        <nav class="flex justify-between gap-x-[494px] mx-[120px] mt-[50px]">
-            <h1 class="font-poppins font-bold text-2xl text-[#3A3A3A]">Influencer products</h1>
+        <nav class="flex items-center justify-between mx-4 gap-[59px] lg:gap-x-[494px] lg:mx-[120px] mt-[35px] lg:mt-[50px]">
+            <div class="lg:hidden">
+                <i class="fa-solid fa-bars hover:scale-120 duration-300"></i>
+            </div>
+            <a href="index.html"><h1 class="font-poppins font-bold text-center text-2xl text-[#3A3A3A] hover:scale-110 duration-300">Influencer products</h1></a>
             <ul class="flex justify-between gap-x-[34px] ">
-                <li><a href="#home" class="text-[#3A3A3A] text-[16px] font-semibold">Home</a></li>
-                <li><a href="#about" class="text-[#3A3A3A] text-[16px] font-semibold">Products</a></li>
-                <li><a href="#products" class="text-[#3A3A3A] text-[16px] font-semibold">Sign up</a></li>
-                <li><a href="#contact" class="text-[#3A3A3A] text-[16px] font-semibold">Log In</a></li>
-                <li><i class="fa-solid fa-magnifying-glass text-[24px] text-black"></i></li>
-                <li><i class="fa-solid fa-cart-shopping text-[24px] text-black"></i></li>
+                <div class="hidden lg:flex lg:justify-between lg:gap-x-[34px]">
+                    <li class="hover:scale-110 duration-300"><a href="#home" class="text-[#3A3A3A] text-[16px] font-semibold">Home</a></li>
+                    <li class="hover:scale-110 duration-300"><a href="#about" class="text-[#3A3A3A] text-[16px] font-semibold">Products</a></li>
+                    <li class="hover:scale-110 duration-300"><a href="#products" class="text-[#3A3A3A] text-[16px] font-semibold">Sign up</a></li>
+                    <li class="hover:scale-110 duration-300"><a href="#contact" class="text-[#3A3A3A] text-[16px] font-semibold">Log In</a></li>
+                    <li class="hover:scale-110 duration-300"><i class="fa-solid fa-magnifying-glass text-[24px] text-[#3A3A3A]"></i></li>
+                </div>
+                <li class="hover:scale-110 duration-300"><i class="fa-solid fa-cart-shopping text-[24px] text-[#3A3A3A]"></i></li>
+            </ul>
         </nav>
     </header>
-    <main>
-        <div class="banner flex justify-between items-center gap-[133px] mx-[120px] mt-[50px]">
-            <div class="banner-left">
-                <p class="font-poppins font-bold text-[52px]/16 text-[#3A3A3A]">Start your Journey as<br>Influencer</p>
-                <p class="mt-4 font-poppins font-semibold text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br> Sem vestibulum sed scelerisque eros. Lectus faucibus.</p>
-                <button class="mt-6 font-poppins font-bold text-base text-white bg-[#E02C6D] px-[24px] py-[10px] rounded-[41px] hover:bg-blue-500">Prebook Now <i class="fa-solid fa-arrow-right-long pl-[10px]"></i></button>
+    <main class="">
+        <div class="banner mt-[22px] mx-[50px] flex flex-col items-center justify-between gap-[40px] lg:mt-[50px] lg:mx-[120px] lg:flex-row-reverse">
+            <div class="banner-right relative">
+                <img src="images/Circle design.svg" alt="camera BG" class="absolute top-0 left-0 z-0 ">
+                <img src="images/main-camera.png" alt="Influencer Banner Image" class="relative z-10 w-[380px]">
+            </div>  
+            <div class="banner-left flex flex-col items-center justify-center">
+                <p class="font-poppins font-bold text-[28px] text-center lg:text-left text-[#3A3A3A]">
+                    Start your Journey as<br>Influencer
+                </p>
+                <p class="mt-4 font-poppins font-semibold text-[#3A3A3A] text-[14px] text-center lg:text-left">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem vestibulum sed scelerisque eros. Lectus faucibus.
+                </p>
+                <button class="mt-6 font-poppins font-bold text-base text-white bg-[#E02C6D] px-[24px] py-[10px] rounded-[41px] hover:bg-blue-500 duration-300">Prebook Now <i class="fa-solid fa-arrow-right-long pl-[10px]"></i></button>
             </div>
-            <div class="banner-right">
-                <img src="images/Circle design.svg" alt="camera BG" class="mb-[-445px] ">
-                <img src="images/main-camera.png" alt="Influencer Banner Image">
-            </div>    
+              
         </div>
-        <div class="sponsors">
+        <div class="hidden sponsors">
             <div class="logos flex justify-between gap-x-15 py-[35px] bg-white"> 
                 <img src="./logos/Alibaba.svg" alt="alibaba">
                 <img src="./logos/Amazon.svg" alt="amazon">
@@ -68,7 +79,7 @@
                 <img src="./logos/Target.svg" alt="target">
             </div>
         </div>
-        <div class="collections mb-14">
+        <div class="hidden collections mb-14">
             <h4 class="font-poppins font-bold text-[28px] text-[#3A3A3A] text-center">Popular Collection</h4>
             <div class="cards grid lg:grid-cols-3 gap-8 mt-[50px] mb-14 mx-auto max-w-screen-lg sm:grid-cols-1 md:grid-cols-2">
                 <div class="card1 w-[329px] p-4 rounded-[5px] shadow-[0_0_40px_0_rgba(0,0,0,0.25)]">
@@ -239,7 +250,7 @@
             </div>
         </div>
     </main>
-    <footer class="bg-[#0A0826] py-12.5 flex flex-col items-center justify-center">
+    <footer class="hidden bg-[#0A0826] py-12.5 flex flex-col items-center justify-center">
         <p class="text-white text-center font-poppins font-bold text-[24px]">Influencer products</p>
         <p class="text-white text-center">Copyright © 2020  influencer products</p>
         <p class="text-white text-center">All rights reserved</p>
